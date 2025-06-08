@@ -1,9 +1,10 @@
 import { User } from "../models/index.js";
+import UserValidations from "../validations/UserValidations.js";
 
 class UserService {
   getAllUserService = async () => {
     const users = await User.findAll({
-      attributes: ["id", "name", "mail"],
+      attributes: ["id", "email", "name", "profilePicture"],
     });
     return users;
   };
@@ -13,8 +14,9 @@ class UserService {
   };
 
   createUserService = async (data) => {
+    UserValidations.validateForCreation(data);
     const user = await User.create(data);
-    return user.name;
+    return user;
   };
 }
 

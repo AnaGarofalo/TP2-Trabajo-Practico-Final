@@ -6,11 +6,10 @@ import connection from "./dbConnection.js";
 const app = express();
 
 app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
 
-app.use(router);
+app.use("/api", router);
 
-await connection.sync({ force: false });
+await connection.sync({ alter: false });
 
 app.listen(SERVER_PORT, () => {
   console.log(`App listening in port ~ ${SERVER_PORT}`);

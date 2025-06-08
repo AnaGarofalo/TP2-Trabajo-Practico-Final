@@ -19,21 +19,28 @@ class UserController {
   };
 
   getUserByIdController = (req, res) => {
-    const { id } = req.params;
-    const user = this.userService.getlUserServiceById(id);
-    res.status(200).send({
-      success: true,
-      message: user,
-    });
+    try {
+      const { id } = req.params;
+      const user = this.userService.getlUserServiceById(id);
+      res.status(200).send({
+        success: true,
+        message: user,
+      });
+    } catch (error) {
+      res.status(400).send({
+        success: false,
+        message: error.message,
+      });
+    }
   };
 
-  createUserController = async (req, res) => {
+  createUserController = async (request, res) => {
     try {
-      const { name, mail, pass } = req.body;
+      const { name, email, password } = request.body;
       const user = await this.userService.createUserService({
         name,
-        mail,
-        pass,
+        email,
+        password,
       });
 
       res.status(201).send({

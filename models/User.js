@@ -6,21 +6,22 @@ class User extends Model {}
 
 User.init(
   {
-    name: DataTypes.STRING,
-    mail: {
+    name: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      unique: true,
+    },
+    email: {
       type: DataTypes.STRING,
       allowNull: false,
       unique: true,
       mail: true,
     },
-    pass: {
+    password: {
       type: DataTypes.STRING,
       allowNull: false,
     },
-    RoleId: {
-      type: DataTypes.INTEGER,
-      defaultValue: 1,
-    },
+    profilePicture: DataTypes.STRING,
   },
   {
     sequelize: connection,
@@ -30,8 +31,8 @@ User.init(
 
 User.beforeCreate(async (user) => {
   const salt = await bcrypt.genSalt(10);
-  const hash = await bcrypt.hash(user.pass, salt);
-  user.pass = hash;
+  const hash = await bcrypt.hash(user.password, salt);
+  user.password = hash;
 });
 
 export default User;
