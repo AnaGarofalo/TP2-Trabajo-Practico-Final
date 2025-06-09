@@ -1,14 +1,14 @@
-import UserService from "../services/UserService.js";
+import GameService from "../services/GameService.js";
 
-class UserController {
-  userService = new UserService();
+class GameController {
+  gameService = new GameService();
 
-  getAllUser = async (req, res) => {
+  getAllGames = async (req, res) => {
     try {
-      const users = await this.userService.getAllUser();
+      const games = await this.gameService.getAllGames();
       res.status(200).send({
         success: true,
-        message: users,
+        message: games,
       });
     } catch (error) {
       res.status(400).send({
@@ -18,13 +18,13 @@ class UserController {
     }
   };
 
-  getUserById = async (req, res) => {
+  getById = async (req, res) => {
     try {
       const { id } = req.params;
-      const user = await this.userService.getUserById(id);
+      const game = await this.gameService.getGameById(id);
       res.status(200).send({
         success: true,
-        message: user,
+        message: game,
       });
     } catch (error) {
       res.status(400).send({
@@ -34,18 +34,18 @@ class UserController {
     }
   };
 
-  createUser = async (request, res) => {
+  createGame = async (request, res) => {
     try {
-      const { name, email, password } = request.body;
-      const user = await this.userService.createUser({
-        name,
-        email,
-        password,
+      const { title, description, image } = request.body;
+      const game = await this.gameService.createGame({
+        title,
+        description,
+        image,
       });
 
       res.status(201).send({
         success: true,
-        message: user,
+        message: game,
       });
     } catch (error) {
       res.status(400).send({
@@ -56,4 +56,4 @@ class UserController {
   };
 }
 
-export default UserController;
+export default GameController;

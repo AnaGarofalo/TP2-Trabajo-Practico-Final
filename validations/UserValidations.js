@@ -5,16 +5,19 @@ const userCreationValidations = {
     required: true,
     type: "string",
     minLength: 3,
+    maxLength: 255,
   },
   email: {
     required: true,
     type: "string",
     email: true,
+    maxLength: 255,
   },
   password: {
     required: true,
     type: "string",
     minLength: 3,
+    maxLength: 255,
   },
 };
 

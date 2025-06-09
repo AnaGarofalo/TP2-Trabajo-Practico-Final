@@ -4,7 +4,10 @@ const validationFns = {
   required: ValidationFns.validateRequired,
   type: ValidationFns.validateType,
   minLength: ValidationFns.validateMinLength,
+  maxLength: ValidationFns.validateMaxLength,
   email: ValidationFns.validateEmail,
+  min: ValidationFns.validateMin,
+  max: ValidationFns.validateMax,
 };
 
 // modelValidations example:
@@ -42,11 +45,15 @@ export default class ValidationUtils {
       for (const valName of Object.keys(modelValidations[prop])) {
         // validationFns[valName] would be, for example ValidationFns.validateRequired,
         // it receives the value to validate, the prop name and the validation specification (for example, minLength: 3)
-        validationFns[valName](
-          data[prop],
-          prop,
-          modelValidations[prop][valName]
-        );
+        if (validationFns[valName]) {
+          validationFns[valName](
+            data[prop],
+            prop,
+            modelValidations[prop][valName]
+          );
+        } else {
+          throw Error(`Validation ${valName} not found`);
+        }
       }
     }
   }

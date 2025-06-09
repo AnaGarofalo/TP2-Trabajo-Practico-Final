@@ -1,0 +1,8 @@
+Sí o Sí
+1. Discutir estrategia de login con profe de PNT2
+
+Si hay tiempo
+
+1. Que los juegos sean editables (por quién? admin? el que los creó?)
+2. Manejo de imágenes
+3. Que las reviews puedan recibir comentarios
