@@ -1,5 +1,5 @@
 import { col, fn } from "sequelize";
-import { Game, Review } from "../models/index.js";
+import { Game, Genre, Review } from "../models/index.js";
 import GameValidations from "../validations/GameValidations.js";
 import ValidationUtils from "../validations/ValidationUtils.js";
 
@@ -16,20 +16,38 @@ class GameService {
           model: Review,
           attributes: [], // omit review props
         },
+        {
+          model: Genre,
+          attributes: ["id", "title"],
+          through: { attributes: [] }, // Hides intermediate table
+        },
       ],
-      group: ["Game.id"], // used to calculate average
+      group: ["Game.id", "Genres.id"], // used to calculate average
     });
   };
 
-  getGameById = async (id) => {
+  getGameById = async (id, includeReviews = false) => {
     ValidationUtils.validateId(id);
     const game = await Game.findByPk(id, {
-      include: [
-        {
-          model: Review,
-          attributes: ["score", "comment"],
-        },
-      ],
+      include: includeReviews
+        ? [
+            {
+              model: Review,
+              attributes: ["score", "comment"],
+            },
+            {
+              model: Genre,
+              attributes: ["id", "title"],
+              through: { attributes: [] }, // Hides intermediate table
+            },
+          ]
+        : [
+            {
+              model: Genre,
+              attributes: ["id", "title"],
+              through: { attributes: [] }, // Hides intermediate table
+            },
+          ],
     });
     if (!game) {
       throw Error("Game not found");
@@ -41,7 +59,10 @@ class GameService {
     GameValidations.validateForCreation(game);
     await this.validateTitleDoesntExists(game.title);
 
-    return await Game.create(game);
+    const created = await Game.create(game);
+    await created.setGenres(game.genresIds);
+
+    return await this.getGameById(created.id);
   };
 
   updateGame = async (game) => {
@@ -60,7 +81,10 @@ class GameService {
       returning: true,
     });
 
-    return updatedGames[0];
+    const updated = updatedGames[0];
+    await updated.setGenres(game.genresIds);
+
+    return await this.getGameById(updated.id);
   };
 
   deleteGame = async (id) => {

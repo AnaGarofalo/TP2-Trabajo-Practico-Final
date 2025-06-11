@@ -10,7 +10,7 @@ app.use(express.json());
 
 app.use("/api", router);
 
-await connection.sync({ alter: true });
+await connection.sync({ force: true });
 
 app.listen(SERVER_PORT, () => {
   console.log(`App listening in port ~ ${SERVER_PORT}`);

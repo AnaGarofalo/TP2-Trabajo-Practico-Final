@@ -17,6 +17,10 @@ const gameCreationValidations = {
     minLength: 3,
     maxLength: 255,
   },
+  genresIds: {
+    required: true,
+    type: "object",
+  },
 };
 
 export default class GameValidations {

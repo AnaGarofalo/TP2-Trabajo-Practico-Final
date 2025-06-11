@@ -1,14 +1,14 @@
-import GameService from "../services/GameService.js";
+import GenreService from "../services/GenreService.js";
 
-class GameController {
-  gameService = new GameService();
+class GenreController {
+  genreService = new GenreService();
 
-  getAllGames = async (req, res) => {
+  getAllGenres = async (req, res) => {
     try {
-      const games = await this.gameService.getAllGames();
+      const genres = await this.genreService.getAllGenres();
       res.status(200).send({
         success: true,
-        message: games,
+        message: genres,
       });
     } catch (error) {
       res.status(400).send({
@@ -21,10 +21,10 @@ class GameController {
   getById = async (req, res) => {
     try {
       const { id } = req.params;
-      const game = await this.gameService.getGameById(id, true);
+      const genre = await this.genreService.getGenreById(id);
       res.status(200).send({
         success: true,
-        message: game,
+        message: genre,
       });
     } catch (error) {
       res.status(400).send({
@@ -34,19 +34,16 @@ class GameController {
     }
   };
 
-  createGame = async (request, res) => {
+  createGenre = async (request, res) => {
     try {
-      const { title, description, image, genresIds } = request.body;
-      const game = await this.gameService.createGame({
+      const { title } = request.body;
+      const genre = await this.genreService.createGenre({
         title,
-        description,
-        image,
-        genresIds,
       });
 
       res.status(201).send({
         success: true,
-        message: game,
+        message: genre,
       });
     } catch (error) {
       res.status(400).send({
@@ -56,21 +53,18 @@ class GameController {
     }
   };
 
-  updateGame = async (request, res) => {
+  updateGenre = async (request, res) => {
     try {
       const { id } = request.params;
-      const { title, description, image, genresIds } = request.body;
-      const game = await this.gameService.updateGame({
+      const { title } = request.body;
+      const genre = await this.genreService.updateGenre({
         title,
-        description,
-        image,
-        genresIds,
         id,
       });
 
       res.status(201).send({
         success: true,
-        message: game,
+        message: genre,
       });
     } catch (error) {
       res.status(400).send({
@@ -80,13 +74,13 @@ class GameController {
     }
   };
 
-  deleteGame = async (req, res) => {
+  deleteGenre = async (req, res) => {
     try {
       const { id } = req.params;
-      const game = await this.gameService.deleteGame(id);
+      const genre = await this.genreService.deleteGenre(id);
       res.status(200).send({
         success: true,
-        message: game,
+        message: genre,
       });
     } catch (error) {
       res.status(400).send({
@@ -97,4 +91,4 @@ class GameController {
   };
 }
 
-export default GameController;
+export default GenreController;
