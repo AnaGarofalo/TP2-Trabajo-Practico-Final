@@ -1,6 +1,6 @@
 import ValidationUtils from "./ValidationUtils.js";
 
-const reviewCreationValidations = {
+const reviewUpdateValidations = {
   score: {
     required: true,
     type: "number",
@@ -13,6 +13,10 @@ const reviewCreationValidations = {
     minLength: 3,
     maxLength: 255,
   },
+};
+
+const reviewCreationValidations = {
+  ...reviewUpdateValidations,
   UserId: {
     required: true,
     type: "number",
@@ -28,5 +32,10 @@ const reviewCreationValidations = {
 export default class ReviewValidations {
   static validateForCreation(review) {
     ValidationUtils.validate(reviewCreationValidations, review);
+  }
+
+  static validateForUpdate(review) {
+    ValidationUtils.validateId(review.id);
+    ValidationUtils.validate(reviewUpdateValidations, review);
   }
 }

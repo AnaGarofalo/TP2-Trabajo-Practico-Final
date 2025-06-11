@@ -1,6 +1,7 @@
 import { Op } from "sequelize";
 import { User } from "../models/index.js";
 import UserValidations from "../validations/userValidations.js";
+import ValidationUtils from "../validations/ValidationUtils.js";
 
 class UserService {
   getAllUser = async () => {
@@ -11,6 +12,7 @@ class UserService {
   };
 
   getUserById = async (id) => {
+    ValidationUtils.validateId(id);
     const user = await User.findByPk(id);
     if (!user) {
       throw Error("User not found");
@@ -20,16 +22,43 @@ class UserService {
 
   createUser = async (user) => {
     UserValidations.validateForCreation(user);
-
-    const existentUser = await this.getByEmailOrName(user.email, user.name);
-    if (existentUser) {
-      throw Error(
-        (existentUser.email === user.email ? "Email" : "Name") +
-          " already in use"
-      );
-    }
+    await this.validateNameAndEmailDoesntExists(user.email, user.name);
 
     return await User.create(user);
+  };
+
+  updateUser = async (user) => {
+    UserValidations.validateForUpdate(user);
+    const oldUser = await this.getUserById(user.id);
+
+    // if the name changes, we need to make sure it's not taken
+    if (oldUser.name !== user.name) {
+      await this.validateNameDoesntExists(user.name);
+    }
+
+    if (oldUser.email !== user.email) {
+      throw Error("Email can't be changed");
+    }
+
+    const [updatedQuantity, updatedUsers] = await User.update(user, {
+      where: {
+        id: user.id,
+      },
+      returning: true,
+    });
+
+    return updatedUsers[0];
+  };
+
+  deleteUser = async (id) => {
+    ValidationUtils.validateId(id);
+    const user = await this.getUserById(id);
+    await User.destroy({
+      where: {
+        id,
+      },
+    });
+    return user;
   };
 
   getByEmailOrName = async (email, name) => {
@@ -38,6 +67,30 @@ class UserService {
         [Op.or]: [{ email }, { name }],
       },
     });
+  };
+
+  getByName = async (name) => {
+    return await User.findOne({
+      where: {
+        name,
+      },
+    });
+  };
+
+  validateNameAndEmailDoesntExists = async (email, name) => {
+    const existentUser = await this.getByEmailOrName(email, name);
+    if (existentUser) {
+      throw Error(
+        (existentUser.email === email ? "Email" : "Name") + " already in use"
+      );
+    }
+  };
+
+  validateNameDoesntExists = async (name) => {
+    const existentUser = await this.getByName(name);
+    if (existentUser) {
+      throw Error("Name already in use");
+    }
   };
 }
 

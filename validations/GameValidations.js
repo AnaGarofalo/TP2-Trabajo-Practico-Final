@@ -23,4 +23,9 @@ export default class GameValidations {
   static validateForCreation(game) {
     ValidationUtils.validate(gameCreationValidations, game);
   }
+
+  static validateForUpdate(game) {
+    ValidationUtils.validateId(game.id);
+    ValidationUtils.validate(gameCreationValidations, game);
+  }
 }

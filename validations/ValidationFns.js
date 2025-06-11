@@ -6,7 +6,7 @@ export default class ValidationFns {
   }
 
   static validateType(value, propName, type) {
-    if (!!value && typeof value !== type) {
+    if ((!!value && typeof value !== type) || Number.isNaN(value)) {
       throw Error(propName + " must be " + type);
     }
   }

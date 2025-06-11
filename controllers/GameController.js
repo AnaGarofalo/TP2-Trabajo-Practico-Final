@@ -54,6 +54,45 @@ class GameController {
       });
     }
   };
+
+  updateGame = async (request, res) => {
+    try {
+      const { id } = request.params;
+      const { title, description, image } = request.body;
+      const game = await this.gameService.updateGame({
+        title,
+        description,
+        image,
+        id,
+      });
+
+      res.status(201).send({
+        success: true,
+        message: game,
+      });
+    } catch (error) {
+      res.status(400).send({
+        success: false,
+        message: error.message,
+      });
+    }
+  };
+
+  deleteGame = async (req, res) => {
+    try {
+      const { id } = req.params;
+      const game = await this.gameService.deleteGame(id);
+      res.status(200).send({
+        success: true,
+        message: game,
+      });
+    } catch (error) {
+      res.status(400).send({
+        success: false,
+        message: error.message,
+      });
+    }
+  };
 }
 
 export default GameController;

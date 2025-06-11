@@ -42,19 +42,27 @@ export default class ValidationUtils {
     for (const prop of Object.keys(modelValidations)) {
       // in the example, Object.keys(modelValidations[prop] would be ["required", "type", "minLength"]
       // so valName would be, for example "required"
-      for (const valName of Object.keys(modelValidations[prop])) {
-        // validationFns[valName] would be, for example ValidationFns.validateRequired,
-        // it receives the value to validate, the prop name and the validation specification (for example, minLength: 3)
-        if (validationFns[valName]) {
-          validationFns[valName](
-            data[prop],
-            prop,
-            modelValidations[prop][valName]
-          );
-        } else {
-          throw Error(`Validation ${valName} not found`);
-        }
+      this.validateProp(data[prop], prop, modelValidations[prop]);
+    }
+  }
+
+  static validateProp(value, propName, propValidations) {
+    for (const valName of Object.keys(propValidations)) {
+      // validationFns[valName] would be, for example ValidationFns.validateRequired,
+      // it receives the value to validate, the prop name and the validation specification (for example, minLength: 3)
+      if (validationFns[valName]) {
+        validationFns[valName](value, propName, propValidations[valName]);
+      } else {
+        throw Error(`Validation ${valName} not found`);
       }
     }
+  }
+
+  static validateId(id) {
+    const idValidations = {
+      type: "number",
+      min: 1,
+    };
+    this.validateProp(Number(id), "id", idValidations);
   }
 }

@@ -25,4 +25,9 @@ export default class UserValidations {
   static validateForCreation(user) {
     ValidationUtils.validate(userCreationValidations, user);
   }
+
+  static validateForUpdate(user) {
+    ValidationUtils.validateId(user.id);
+    ValidationUtils.validate(userCreationValidations, user);
+  }
 }
