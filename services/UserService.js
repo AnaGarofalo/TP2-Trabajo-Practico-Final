@@ -13,7 +13,22 @@ class UserService {
 
   getUserById = async (id) => {
     ValidationUtils.validateId(id);
-    const user = await User.findByPk(id);
+    const user = await User.findByPk(id, {
+      attributes: ["id", "email", "name", "profilePicture"],
+    });
+    if (!user) {
+      throw Error("User not found");
+    }
+    return user;
+  };
+
+  getUserByEmail = async (email) => {
+    const user = await User.findOne({
+      where: {
+        email,
+      },
+      attributes: ["id", "email", "name", "profilePicture", "password"],
+    });
     if (!user) {
       throw Error("User not found");
     }
