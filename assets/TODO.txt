@@ -1,5 +1,7 @@
-Sí o Sí
-1. Discutir estrategia de login con profe de PNT2
+FALTA
+- al crear o updatear un juego, revisar que los géneros existan
+- ver qué pasa cuando haces delete de un género
+
 
 Si hay tiempo
 

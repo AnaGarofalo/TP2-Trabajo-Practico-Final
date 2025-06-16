@@ -8,6 +8,7 @@ const DB_PASSWORD = env.DB_PASSWORD;
 const DB_HOST = env.DB_HOST;
 const DB_PORT = env.DB_PORT;
 const DB_DIALECT = env.DB_DIALECT;
+const FRONT_BASE_URL = env.FRONT_BASE_URL;
 
 export {
   SERVER_PORT,
@@ -17,4 +18,5 @@ export {
   DB_HOST,
   DB_PORT,
   DB_DIALECT,
+  FRONT_BASE_URL,
 };

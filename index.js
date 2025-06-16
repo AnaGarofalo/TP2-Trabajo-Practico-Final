@@ -1,5 +1,6 @@
 import express from "express";
-import { SERVER_PORT } from "./config.js";
+import cors from "cors";
+import { FRONT_BASE_URL, SERVER_PORT } from "./config.js";
 import { router } from "./routes/router.js";
 import connection from "./dbConnection.js";
 import mockAllData from "./assets/mockData.js";
@@ -7,6 +8,11 @@ import mockAllData from "./assets/mockData.js";
 const app = express();
 
 app.use(express.json());
+app.use(
+  cors({
+    origin: FRONT_BASE_URL,
+  })
+);
 
 app.use("/api", router);
 
