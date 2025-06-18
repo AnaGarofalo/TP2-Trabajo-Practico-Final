@@ -1,3 +1,4 @@
+import JWTUtils from "../utils/token.js";
 import AuthValidations from "../validations/AuthValidations.js";
 import UserService from "./UserService.js";
 import bcrypt from "bcrypt";
@@ -15,6 +16,14 @@ export default class AuthService {
       throw Error("Password incorrect");
     }
     user.password = undefined;
-    return user;
+    const token = JWTUtils.gentoken(user);
+    return { user, token };
+  };
+
+  createAndLogin = async (toCreate) => {
+    const user = await this.userService.createUser(toCreate);
+    user.password = undefined;
+    const token = JWTUtils.gentoken(user);
+    return { user, token };
   };
 }
