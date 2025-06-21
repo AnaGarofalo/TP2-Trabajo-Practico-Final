@@ -86,7 +86,7 @@ function mockGames() {
       description:
         "A prequel to the DOOM series, this game delves into the Doom Slayer's origins, blending medieval settings with intense demon-slaying action.",
       image:
-        "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4f/Doom_The_Dark_Ages_cover_art.jpg/800px-Doom_The_Dark_Ages_cover_art.jpg",
+        "https://image.api.playstation.com/vulcan/ap/rnd/202501/1405/5a9411754439a02d29f43dc71e6a5a953a087111c863d381.png",
       genresIds: [1, 4, 14, 17],
     },
     {
@@ -94,7 +94,7 @@ function mockGames() {
       description:
         "The sequel to the acclaimed roguelike, players control Melinoë, battling through the underworld to confront Chronos, the Titan of Time.",
       image:
-        "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4f/Hades_II_cover_art.jpg/800px-Hades_II_cover_art.jpg",
+        "https://cafedragon.ar/wp-content/uploads/2024/04/h2.jpg",
       genresIds: [1, 3, 15, 17],
     },
     {
@@ -102,7 +102,7 @@ function mockGames() {
       description:
         "An open-world installment in the Monster Hunter series, featuring seamless exploration and dynamic combat against formidable creatures.",
       image:
-        "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2e/Monster_Hunter_Wilds_cover_art.jpg/800px-Monster_Hunter_Wilds_cover_art.jpg",
+        "https://gmedia.playstation.com/is/image/SIEPDC/monster-hunter-wilds-keyart-nologo-01-en-21oct24?$2400px$",
       genresIds: [1, 3, 2, 14],
     },
     {
@@ -110,7 +110,7 @@ function mockGames() {
       description:
         "A first-person RPG set in the Pillars of Eternity universe, offering deep storytelling and expansive environments.",
       image:
-        "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3f/Avowed_cover_art.jpg/800px-Avowed_cover_art.jpg",
+        "https://www.desconsolados.com/wp-content/uploads/2025/02/Avowed-Logo.jpg",
       genresIds: [2, 3, 17],
     },
     {
@@ -118,7 +118,7 @@ function mockGames() {
       description:
         "The latest entry in the Civilization series, introducing new mechanics and civilizations for a deeper strategic experience.",
       image:
-        "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1e/Civilization_VII_cover_art.jpg/800px-Civilization_VII_cover_art.jpg",
+        "https://sm.ign.com/t/ign_nordic/review/c/civilizati/civilization-7-review_97cm.1024.jpg",
       genresIds: [5, 18],
     },
     {
@@ -126,7 +126,7 @@ function mockGames() {
       description:
         "A sequel to the medieval RPG, continuing the story with enhanced realism and historical accuracy.",
       image:
-        "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/Kingdom_Come_Deliverance_II_cover_art.jpg/800px-Kingdom_Come_Deliverance_II_cover_art.jpg",
+        "https://upload.wikimedia.org/wikipedia/en/3/32/Kingdom_Come_Deliverance_II.jpg",
       genresIds: [3, 18, 2],
     },
     {
@@ -134,7 +134,7 @@ function mockGames() {
       description:
         "The continuation of the Final Fantasy VII remake, expanding the narrative with new characters and gameplay elements.",
       image:
-        "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/Final_Fantasy_VII_Rebirth_cover_art.jpg/800px-Final_Fantasy_VII_Rebirth_cover_art.jpg",
+        "https://pics.filmaffinity.com/Final_Fantasy_VII_Rebirth-554698027-large.jpg",
       genresIds: [3, 2, 17],
     },
     {
@@ -142,7 +142,7 @@ function mockGames() {
       description:
         "The follow-up to the popular deck-building roguelike, introducing new characters and strategies.",
       image:
-        "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6e/Slay_the_Spire_2_cover_art.jpg/800px-Slay_the_Spire_2_cover_art.jpg",
+        "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2868840/header.jpg?t=1746076471",
       genresIds: [5, 7, 15],
     },
     {
@@ -150,7 +150,7 @@ function mockGames() {
       description:
         "A new chapter in the Resident Evil series, featuring a fresh storyline and enhanced horror elements.",
       image:
-        "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3f/Resident_Evil_Requiem_cover_art.jpg/800px-Resident_Evil_Requiem_cover_art.jpg",
+        "https://image.api.playstation.com/vulcan/ap/rnd/202506/0700/4d97ce9c596cf6a3296e8f07efd62e85191dc616e8213b43.png?w=440",
       genresIds: [1, 6, 14],
     },
     {
@@ -158,7 +158,7 @@ function mockGames() {
       description:
         "The sequel to the acclaimed game, continuing the story with new characters and expanded gameplay mechanics.",
       image:
-        "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4b/Death_Strand_2_cover_art.jpg/800px-Death_Strand_2_cover_art.jpg",
+        "https://image.api.playstation.com/vulcan/ap/rnd/202401/2513/94256874acf092649ea821c5b6e7c44d8825e5237be22c97.jpg",
       genresIds: [2, 16, 6],
     },
     {
@@ -166,7 +166,7 @@ function mockGames() {
       description:
         "An action RPG set in The Expanse universe, offering space exploration and combat.",
       image:
-        "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1e/Expanse_Osiris_Reborn_cover_art.jpg/800px-Expanse_Osiris_Reborn_cover_art.jpg",
+        "https://i.playground.ru/e/-hvMcZoDzhve7gzKlOIj7Q.jpeg?208x288",
       genresIds: [1, 3, 16],
     },
     {
@@ -174,7 +174,7 @@ function mockGames() {
       description:
         "A narrative-driven adventure game with a focus on exploration and puzzle-solving.",
       image:
-        "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Echoes_of_the_End_cover_art.jpg/800px-Echoes_of_the_End_cover_art.jpg",
+        "https://bdjogos.com.br/capas/28110-min-echoes-of-the-end-capa-1.webp",
       genresIds: [2, 7, 19],
     },
     {
@@ -182,7 +182,7 @@ function mockGames() {
       description:
         "A psychological thriller combining FMV and 3D gameplay, exploring the boundaries of reality and dreams.",
       image:
-        "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3d/Sleep_Awake_cover_art.jpg/800px-Sleep_Awake_cover_art.jpg",
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQyakaR3x2Zv_cm9kP2u3DRrIls7Y9gfaYAYQ&s",
       genresIds: [6, 2, 19],
     },
     {
@@ -190,7 +190,7 @@ function mockGames() {
       description:
         "The sequel to the action RPG, featuring new mythologies and enhanced combat systems.",
       image:
-        "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5f/Titan_Quest_2_cover_art.jpg/800px-Titan_Quest_2_cover_art.jpg",
+        "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1154030/header.jpg?t=1747135611",
       genresIds: [1, 3, 17],
     },
     {
@@ -198,7 +198,7 @@ function mockGames() {
       description:
         "The latest installment in the Call of Duty franchise, introducing a co-op campaign and traditional Zombies mode.",
       image:
-        "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/Call_of_Duty_Black_Ops_7_cover_art.jpg/800px-Call_of_Duty_Black_Ops_7_cover_art.jpg",
+        "https://bnetcmsus-a.akamaihd.net/cms/blog_header/7m/7MFT7FOIH3I31749406406524.jpg?",
       genresIds: [1, 4, 6],
     },
     {
@@ -206,7 +206,7 @@ function mockGames() {
       description:
         "The sequel to the survival game, offering new environments and challenges.",
       image:
-        "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Grounded_2_cover_art.jpg/800px-Grounded_2_cover_art.jpg",
+        "https://upload.wikimedia.org/wikipedia/en/4/43/Grounded_2_cover.jpg",
       genresIds: [2, 14, 8],
     },
     {
@@ -214,7 +214,7 @@ function mockGames() {
       description:
         "A new title from Double Fine Productions, featuring unique gameplay mechanics and storytelling.",
       image:
-        "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7b/Keeper_cover_art.jpg/800px-Keeper_cover_art.jpg",
+        "https://upload.wikimedia.org/wikipedia/en/2/21/Core_Keeper.jpg",
       genresIds: [],
     },
     {
@@ -222,7 +222,7 @@ function mockGames() {
       description:
         "A noir thriller set in both World War I and II-era Japan, blending detective work with action elements.",
       image:
-        "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8a/Stranger_Than_Heaven_cover_art.jpg/800px-Stranger_Than_Heaven_cover_art.jpg",
+        "https://i.rutab.net/upload/2025/06/news/c4a168ab7699d5a61ec1d522337cf933.webp",
       genresIds: [2, 6, 18],
     },
   ];

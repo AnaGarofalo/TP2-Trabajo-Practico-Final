@@ -9,6 +9,8 @@ class GameService {
       attributes: [
         "id",
         "title",
+        "description",
+        "image",
         [fn("AVG", col("Reviews.score")), "averageScore"], // average score by game
       ],
       include: [
