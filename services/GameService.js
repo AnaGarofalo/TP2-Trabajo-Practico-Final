@@ -1,5 +1,5 @@
 import { col, fn } from "sequelize";
-import { Game, Genre, Review } from "../models/index.js";
+import { Game, Genre, Review, User } from "../models/index.js";
 import GameValidations from "../validations/GameValidations.js";
 import ValidationUtils from "../validations/ValidationUtils.js";
 
@@ -36,6 +36,12 @@ class GameService {
             {
               model: Review,
               attributes: ["score", "comment"],
+              include: [
+                {
+                  model: User,
+                  attributes: ["name"],
+                },
+              ],
             },
             {
               model: Genre,
