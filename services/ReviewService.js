@@ -1,5 +1,5 @@
 import { Op } from "sequelize";
-import { Review } from "../models/index.js";
+import { Review, User } from "../models/index.js";
 import ReviewValidations from "../validations/ReviewValidations.js";
 import ValidationUtils from "../validations/ValidationUtils.js";
 import GameService from "./GameService.js";
@@ -34,7 +34,13 @@ class ReviewService {
       review.GameId,
       review.UserId
     );
-    return await Review.create(review);
+    const newReview = await Review.create(review);
+    return await Review.findByPk(newReview.id, {
+      include: {
+        model: User,
+        attributes: ["name", "profilePicture"],
+      },
+    });
   };
 
   updateReview = async (review) => {

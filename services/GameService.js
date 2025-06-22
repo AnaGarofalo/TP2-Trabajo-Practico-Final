@@ -39,7 +39,7 @@ class GameService {
               include: [
                 {
                   model: User,
-                  attributes: ["name"],
+                  attributes: ["name", "profilePicture"],
                 },
               ],
             },

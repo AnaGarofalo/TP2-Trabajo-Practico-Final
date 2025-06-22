@@ -24,26 +24,35 @@ function mockUsers() {
       name: "LuquitasCapo",
       email: "luqui@elCapo.com",
       password: "password",
+      profilePicture: "https://i.redd.it/prwa3v3e7cu91.jpg",
     },
     {
       name: "Lean",
       email: "lean@soyyo.com",
       password: "password",
+      profilePicture:
+        "https://i.pinimg.com/474x/f0/1f/f4/f01ff4f5d7ab38a5305e7c433cbb7575.jpg",
     },
     {
       name: "Tomi",
       email: "tomi@gentleman.com",
       password: "password",
+      profilePicture:
+        "https://media.vandal.net/i/1200x900/9-2022/202291917113545_1.jpg",
     },
     {
       name: "Anita",
       email: "ani@labuela.com",
       password: "password",
+      profilePicture:
+        "https://i.pinimg.com/474x/f0/1f/f4/f01ff4f5d7ab38a5305e7c433cbb7575.jpg",
     },
     {
       name: "Ilan",
       email: "ilam@misterio.com",
       password: "password",
+      profilePicture:
+        "https://cdn.mos.cms.futurecdn.net/Lf9fbStDf37vWxuRpPm4ud.jpg",
     },
   ];
   const promises = usersToCreate.map((user) => userService.createUser(user));
@@ -87,15 +96,14 @@ function mockGames() {
         "A prequel to the DOOM series, this game delves into the Doom Slayer's origins, blending medieval settings with intense demon-slaying action.",
       image:
         "https://image.api.playstation.com/vulcan/ap/rnd/202501/1405/5a9411754439a02d29f43dc71e6a5a953a087111c863d381.png",
-      genresIds: [1, 4, 14, 17],
+      genresIds: [1, 4, 14],
     },
     {
       title: "Hades II",
       description:
         "The sequel to the acclaimed roguelike, players control Melinoë, battling through the underworld to confront Chronos, the Titan of Time.",
-      image:
-        "https://cafedragon.ar/wp-content/uploads/2024/04/h2.jpg",
-      genresIds: [1, 3, 15, 17],
+      image: "https://cafedragon.ar/wp-content/uploads/2024/04/h2.jpg",
+      genresIds: [1, 3, 15],
     },
     {
       title: "Monster Hunter Wilds",
@@ -103,7 +111,7 @@ function mockGames() {
         "An open-world installment in the Monster Hunter series, featuring seamless exploration and dynamic combat against formidable creatures.",
       image:
         "https://gmedia.playstation.com/is/image/SIEPDC/monster-hunter-wilds-keyart-nologo-01-en-21oct24?$2400px$",
-      genresIds: [1, 3, 2, 14],
+      genresIds: [1, 3, 2],
     },
     {
       title: "Avowed",
@@ -165,8 +173,7 @@ function mockGames() {
       title: "The Expanse: Osiris Reborn",
       description:
         "An action RPG set in The Expanse universe, offering space exploration and combat.",
-      image:
-        "https://i.playground.ru/e/-hvMcZoDzhve7gzKlOIj7Q.jpeg?208x288",
+      image: "https://i.playground.ru/e/-hvMcZoDzhve7gzKlOIj7Q.jpeg?208x288",
       genresIds: [1, 3, 16],
     },
     {
@@ -213,9 +220,8 @@ function mockGames() {
       title: "Keeper",
       description:
         "A new title from Double Fine Productions, featuring unique gameplay mechanics and storytelling.",
-      image:
-        "https://upload.wikimedia.org/wikipedia/en/2/21/Core_Keeper.jpg",
-      genresIds: [],
+      image: "https://upload.wikimedia.org/wikipedia/en/2/21/Core_Keeper.jpg",
+      genresIds: [2, 14],
     },
     {
       title: "Stranger Than Heaven",
