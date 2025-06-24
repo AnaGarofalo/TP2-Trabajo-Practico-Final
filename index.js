@@ -19,7 +19,7 @@ app.use(
 
 app.use("/api", router);
 
-await connection.sync({ force: true });
+await connection.sync({ force: false });
 
 app.listen(SERVER_PORT, () => {
   console.log(`App listening in port ~ ${SERVER_PORT}`);

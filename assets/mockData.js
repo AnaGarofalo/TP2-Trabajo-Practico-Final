@@ -31,14 +31,14 @@ function mockUsers() {
       email: "lean@soyyo.com",
       password: "password",
       profilePicture:
-        "https://i.pinimg.com/474x/f0/1f/f4/f01ff4f5d7ab38a5305e7c433cbb7575.jpg",
+        "https://media.vandal.net/i/1200x900/9-2022/202291917113545_1.jpg",
     },
     {
       name: "Tomi",
       email: "tomi@gentleman.com",
       password: "password",
       profilePicture:
-        "https://media.vandal.net/i/1200x900/9-2022/202291917113545_1.jpg",
+        "https://assetsio.gnwcdn.com/spyro-reignited-trilogy-review-a-gorgeous-and-faithful-remaster-that-sometimes-gives-more-nostalgia-than-bargained-for-1542038428345.jpg?width=1200&height=1200&fit=crop&quality=100&format=png&enable=upscale&auto=webp",
     },
     {
       name: "Anita",
@@ -142,7 +142,7 @@ function mockGames() {
       description:
         "The continuation of the Final Fantasy VII remake, expanding the narrative with new characters and gameplay elements.",
       image:
-        "https://pics.filmaffinity.com/Final_Fantasy_VII_Rebirth-554698027-large.jpg",
+        "https://cdn-bgp.bluestacks.com/BGP/latam/gametiles_com.machinezone.ffane.jpg",
       genresIds: [3, 2, 17],
     },
     {
