@@ -6,6 +6,7 @@ const userCreationValidations = {
     type: "string",
     minLength: 3,
     maxLength: 255,
+    alphanumeric: true,
   },
   email: {
     required: true,

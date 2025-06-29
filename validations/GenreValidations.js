@@ -6,6 +6,7 @@ const genreCreationValidations = {
     type: "string",
     minLength: 3,
     maxLength: 40,
+    alphanumeric: true,
   },
 };
 

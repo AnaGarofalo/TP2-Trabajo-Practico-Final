@@ -6,11 +6,13 @@ const gameCreationValidations = {
     type: "string",
     minLength: 3,
     maxLength: 255,
+    alphanumeric: true,
   },
   description: {
     type: "string",
     minLength: 3,
     maxLength: 255,
+    alphanumeric: true,
   },
   image: {
     type: "string",

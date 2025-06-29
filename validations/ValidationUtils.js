@@ -8,6 +8,7 @@ const validationFns = {
   email: ValidationFns.validateEmail,
   min: ValidationFns.validateMin,
   max: ValidationFns.validateMax,
+  alphanumeric: ValidationFns.validateAlphanumeric,
 };
 
 // modelValidations example:

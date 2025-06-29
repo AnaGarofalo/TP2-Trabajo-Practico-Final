@@ -40,9 +40,16 @@ export default class ValidationFns {
   }
 
   static validateEmail(value, propName) {
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
     if (!!value && !emailRegex.test(value)) {
       throw Error(propName + " must be a valid email");
+    }
+  }
+
+  static validateAlphanumeric(value, propName) {
+    const alphanumericRegex = /^[a-zA-Z0-9\s]*$/;
+    if (!!value && !alphanumericRegex.test(value)) {
+      throw Error(propName + " can't contain special characters");
     }
   }
 }
